@@ -1,3 +1,4 @@
+'use strict';
 //Linked Lists
 function LinkedList() {
     this.head = null;

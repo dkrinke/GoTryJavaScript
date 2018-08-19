@@ -1,3 +1,4 @@
+'use strict';
 console.log('1.5');
 // Implement a method to perform basic string compression using the counts
 // of repeated characters. For example, the string aabcccccaaa would become

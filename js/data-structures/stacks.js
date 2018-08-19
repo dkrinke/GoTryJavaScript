@@ -1,3 +1,4 @@
+'use strict';
 function Stack()
 {
 	this.stac = new Array();
