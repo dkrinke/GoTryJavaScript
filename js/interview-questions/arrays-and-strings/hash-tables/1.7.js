@@ -7,8 +7,8 @@ var checkZeros = function(matrix) {
 
  	var matrixHeight = matrix.length;
     var matrixWidth = matrix[0].length;
-	var rowsToZero = [];
-	var colsToZero = [];
+	var rowsToZero = new Array(matrix.length);
+	var colsToZero = new Array(matrix[0].length);
 
 	for(var i = 0; i < matrixHeight; i++) {
 		for(var j = 0; j < matrixWidth; j++) {
@@ -27,26 +27,28 @@ var checkZeros = function(matrix) {
 
 var zeroCol = function(matrix, col) {
 	for(var i = 0; i < matrix.length; i++) {
-		matrix[i][col] = 0;
+		console.log(matrix[i][col]);
+		if(matrix[i][col] !== undefined) matrix[i][col] = 0;
 	}
 };
 
 var zeroRow = function(matrix, row) {
 	for(var j = 0; j < matrix[0].length; j++) {
-		matrix[row][j] = 0;
+		console.log(matrix[row][j]);
+		if(matrix[row][j] !== undefined) matrix[row][j] = 0;
 	}
 };
 
 var zeroifyCols = function(matrix, zeroScan) {
-  for (var col in zeroScan.colsToZeroify) {
-    zeroCol(matrix, Number(col));  
-  }
+   	for (var j = 0; j < zeroScan.colsToZero.length; j++)  {
+  		if (zeroScan.colsToZero[j]) zeroCol(matrix, j);  
+  	}
 };
 
 var zeroifyRows = function(matrix, zeroScan) {
-  for (var row in zeroScan.rowsToZeroify) {
-    zeroRow(matrix, Number(row));  
-  }
+   	for (var i = 0; i < zeroScan.rowsToZero.length; i++)  {
+    	if (zeroScan.rowsToZero[i]) zeroRow(matrix, i);  
+  	}
 };
 
 var zeroMatrix = function(matrix) {
